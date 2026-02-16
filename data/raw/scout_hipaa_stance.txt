@@ -1,0 +1,13 @@
+Scout KB HIPAA Stance
+
+Scout KB is not HIPAA-certified in v1.
+Scout KB does not provide a Business Associate Agreement (BAA).
+Users must upload only de-identified or redacted content.
+
+Scout KB provides:
+- Tenant isolation
+- Encryption in transit
+- Encryption at rest
+- Access controls
+
+Regulated data assurances are out of scope for v1.

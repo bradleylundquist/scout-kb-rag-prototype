@@ -1,0 +1,19 @@
+Scout KB MVP Scope
+
+In Scope:
+- PDF, DOC, and TXT ingestion
+- Embeddings-based semantic search
+- AI-powered Q&A strictly grounded in uploaded documents
+
+Out of Scope:
+- Ticket system integrations
+- AI confidence scoring
+- HIPAA compliance certifications
+
+Target Customers:
+- Small MSP and IT teams (5–25 users)
+
+Core Principle:
+- Simplicity over feature creep
+- Production-ready fundamentals
+- Solo-founder friendly architecture

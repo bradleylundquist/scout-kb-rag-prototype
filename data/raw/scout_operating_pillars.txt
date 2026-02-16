@@ -1,0 +1,12 @@
+Scout KB Operating Pillars
+
+1. Product & Software Development
+2. Infrastructure & Reliability
+3. Security & Data Handling
+4. Legal & Compliance
+5. Billing & Finance
+6. Sales & Marketing
+7. Customer Support & Success
+8. Documentation & Knowledge
+9. Operations & Workflow
+10. Strategy & Direction

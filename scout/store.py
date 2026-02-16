@@ -23,6 +23,7 @@ class StoredChunk:
 
 
 class ScoutStore:
+    
     def __init__(self, db_path: str) -> None:
         self.db_path = db_path
         Path(os.path.dirname(db_path)).mkdir(parents=True, exist_ok=True)
@@ -93,6 +94,31 @@ class ScoutStore:
         with self._connect() as conn:
             row = conn.execute("SELECT COUNT(*) FROM chunks").fetchone()
             return int(row[0]) if row else 0
+
+    def search_chunks(self, query: str, *, limit: int = 5) -> list[tuple[str, int, str]]:
+        """
+        Simple keyword search using SQLite LIKE.
+        Returns: [(doc_name, chunk_index, chunk_text), ...]
+        """
+        q = query.strip()
+        if not q:
+            return []
+
+        like = f"%{q}%"
+        with self._connect() as conn:
+            rows = conn.execute(
+                """
+                SELECT d.name, c.chunk_index, c.text
+                FROM chunks c
+                JOIN documents d ON d.doc_id = c.doc_id
+                WHERE c.text LIKE ?
+                ORDER BY d.name ASC, c.chunk_index ASC
+                LIMIT ?
+                """,
+                (like, limit),
+            ).fetchall()
+
+        return [(r[0], int(r[1]), str(r[2])) for r in rows]
 
     def get_top_chunks(self, *, limit: int = 5) -> list[tuple[str, int, int]]:
         """

@@ -35,7 +35,7 @@ def ingest_folder(raw_dir: Path, db_path: Path) -> None:
         doc = Document(doc_id=doc_id, name=p.name, path=str(p.resolve()))
         store.upsert_document(doc)
 
-        chunks = chunk_text(text, chunk_size=1000, overlap=150)
+        chunks = chunk_text(text, chunk_size=150, overlap=30)
         stored = [StoredChunk(doc_id=doc_id, chunk_index=c.index, text=c.text) for c in chunks]
         store.replace_chunks(doc_id, stored)
 

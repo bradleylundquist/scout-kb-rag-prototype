@@ -10,7 +10,7 @@ class Chunk:
     index: int
 
 
-def chunk_text(text: str, *, chunk_size: int = 1000, overlap: int = 150) -> List[Chunk]:
+def chunk_text(text: str, *, chunk_size: int = 150, overlap: int = 30) -> List[Chunk]:
     """
     Simple character-based chunking with overlap.
     Keeps MVP easy to reason about and debug.
